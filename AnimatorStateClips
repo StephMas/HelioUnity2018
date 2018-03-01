@@ -1,0 +1,15 @@
+                foreach (AnimationClip state in interactionAnimationList.interactionAnimations[i].animator.runtimeAnimatorController.animationClips)
+                {
+                    animationStateList.Add(state.name);
+                    animationNum = i;
+                    i++;
+                }
+                string label = "ANIMATION TO ADD:";
+
+                animationNum = EditorGUILayout.Popup(label, animationNum, animationStateList.ToArray());
+
+                if (animationStateList.Count > 0)
+                {
+                    EditorGUILayout.LabelField("NAME: ", interactionAnimationList.interactionAnimations[animationNum].animationClip.name);
+                    EditorGUILayout.FloatField("LENGTH: ", interactionAnimationList.interactionAnimations[animationNum].animationClip.length);
+                }
